@@ -28,6 +28,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
+                    cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform                    
                     ls -l
                     pwd
                     terraform plan -out=tfplan
@@ -40,6 +41,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
+                    cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform                    
                     terraform apply -auto-approve tfplan
                     """
                 }
