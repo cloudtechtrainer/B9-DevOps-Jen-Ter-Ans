@@ -14,6 +14,7 @@ pipeline {
                     sh 'ls'
                     sh 'pwd'
                     sh 'cd Terraform'
+                    sh 'ls'
                     sh 'terraform init'
                 }
             }
