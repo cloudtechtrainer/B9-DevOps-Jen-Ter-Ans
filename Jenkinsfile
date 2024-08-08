@@ -58,6 +58,7 @@ pipeline {
                         cd /var/lib/jenkins/workspace/jen-ter-ans/Ansible
                         ls -l
                         ansible-playbook -i inventory.ini playbook.yml
+                    """
                 }
             }
         }
