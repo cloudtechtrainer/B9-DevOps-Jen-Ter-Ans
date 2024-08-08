@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
-                    cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform                    
+                    cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                   
                     ls -l
                     pwd
                     terraform plan -out=tfplan
