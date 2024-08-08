@@ -1,0 +1,50 @@
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Update and install dependencies
+      yum:
+        name: ['git', 'python3', 'python3-pip']
+        state: present
+        update_cache: yes
+
+    - name: Install virtualenv
+      pip:
+        name: virtualenv
+        executable: /usr/bin/pip3
+
+    - name: Create virtual environment
+      command: /usr/bin/python3 -m venv /home/ec2-user/flaskapp/venv
+
+    - name: Install Flask in virtual environment
+      pip:
+        name: flask
+        executable: /home/ec2-user/flaskapp/venv/bin/pip
+
+    - name: Clone Flask app repository
+      git:
+        repo: 'https://github.com/cloudtechtrainer/B8-DevOps-Ansible.git'
+        dest: /home/ec2-user/flaskapp
+
+    - name: Create systemd service file for Flask app
+      copy:
+        dest: /etc/systemd/system/flaskapp.service
+        content: |
+          [Unit]
+          Description=Flask App
+          After=network.target
+
+          [Service]
+          User=ec2-user
+          WorkingDirectory=/home/ec2-user/flaskapp
+          ExecStart=/home/ec2-user/flaskapp/venv/bin/python /home/ec2-user/flaskapp/myapp.py
+          Restart=always
+
+          [Install]
+          WantedBy=multi-user.target
+
+    - name: Start and enable Flask app service
+      systemd:
+        name: flaskapp
+        enabled: yes
+        state: started
