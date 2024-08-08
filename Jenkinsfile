@@ -13,7 +13,7 @@ pipeline {
                 script {
                         sh """ 
                         #!/bin/bash
-                        ls
+                        ls -l
                         pwd
                         cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform
                         ls -l
