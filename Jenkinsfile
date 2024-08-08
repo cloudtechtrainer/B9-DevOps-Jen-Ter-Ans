@@ -13,7 +13,7 @@ pipeline {
                 script {
                     sh 'ls'
                     sh 'pwd'
-                    sh 'cd ./Terraform'
+                    sh 'cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform'
                     sh 'ls'
                     sh 'terraform init'
                 }
