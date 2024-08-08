@@ -15,7 +15,7 @@ pipeline {
                         #!/bin/bash
                         ls -l
                         pwd
-                        cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform
+                        cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform
                         ls -l
                         pwd
                         terraform init
@@ -41,7 +41,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
-                    cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform                    
+                    cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                    
                     terraform apply -auto-approve tfplan
                     """
                 }
@@ -55,7 +55,7 @@ pipeline {
                         #!/bin/bash
                         ls -l
                         pwd
-                        cd /var/lib/jenkins/workspace/jen-ter-ans/Ansible
+                        cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Ansible
                         ls -l
                         ansible-playbook -i inventory.ini playbook.yml
                     """
