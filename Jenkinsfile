@@ -11,12 +11,15 @@ pipeline {
         stage('Terraform Init') {
             steps {
                 script {
-                    sh 'ls'
-                    sh 'pwd'
-                    sh 'cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform'
-                    sh 'pwd'
-                    sh 'ls'
-                    sh 'terraform init'
+                        sh """ 
+                        #!/bin/bash
+                        ls
+                        pwd
+                        cd /var/lib/jenkins/workspace/jen-ter-ans/Terraform
+                        ls -l
+                        pwd
+                        terraform init
+                        """
                 }
             }
         }
