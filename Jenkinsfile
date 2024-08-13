@@ -25,20 +25,18 @@ pipeline {
             }
         }
 
-        stage('ssh') {
+        stage('Terraform Plan') {
             steps {
                 script {
-                    sh """
-                        #!/bin/bash                    
-                        ls -l
-                        pwd
-                        ssh -o StrictHostKeyChecking=no -tt -i "Test-1.pem" ec2-user@ec2-13-232-231-240.ap-south-1.compute.amazonaws.com
-                        pwd
-                        ls -l
+                    sh """ 
+                    cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                   
+                    ls -l
+                    pwd
+                    terraform plan -out=tfplan -parallelism=2
                     """
                 }
             }
-        }
+        }        
 
         stage('Terraform Apply') {
             steps {
