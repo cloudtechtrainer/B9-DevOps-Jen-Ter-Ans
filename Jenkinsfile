@@ -25,19 +25,6 @@ pipeline {
             }
         }
 
-        stage('Terraform Plan') {
-            steps {
-                script {
-                    sh """ 
-                    cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                   
-                    ls -l
-                    pwd
-                    terraform plan -out=tfplan
-                    """
-                }
-            }
-        }
-
         stage('Terraform Apply') {
             steps {
                 script {
