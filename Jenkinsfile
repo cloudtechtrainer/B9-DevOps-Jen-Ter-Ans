@@ -4,12 +4,16 @@ pipeline {
     stages {
         stage('ssh') {
             steps {
-                sh """
-                cd /home/ubuntu
-                ssh -i "Test-1.pem" ec2-user@ec2-13-232-231-240.ap-south-1.compute.amazonaws.com
-                pwd
-                ls -l
-                """
+                script {
+                    sh """
+                    ls -l
+                    pwd
+                    cd /home/ubuntu
+                    ssh -i "Test-1.pem" ec2-user@ec2-13-232-231-240.ap-south-1.compute.amazonaws.com
+                    pwd
+                    ls -l
+                    """
+                }
             }
         }
 
