@@ -42,6 +42,6 @@ output "instance_public_ips" {
 
 # Write the public IPs to a file
 resource "local_file" "public_ips" {
-  content  = "[all]\n" + join("\n", aws_instance.example[*].public_ip)
+  content  = format("[all]\n%s", join("\n", aws_instance.example[*].public_ip))
   filename = "${path.module}/public_ips.txt"
 }
