@@ -1,8 +1,18 @@
 # main.tf
 
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
+
+  required_version = ">= 1.9.0"
+}
+
 provider "aws" {
-  region = "ap-south-2"
-  profile = "jack.roper"
+  region  = "ap-south-2"
 }
 
 # Create a new security group that allows incoming SSH traffic
