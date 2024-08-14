@@ -34,3 +34,14 @@ resource "aws_instance" "example" {
   key_name = "jenkin-key"
   vpc_security_group_ids = [aws_security_group.ssh.id]
 }
+
+# Output the public IPs of the instances
+output "instance_public_ips" {
+  value = aws_instance.example[*].public_ip
+}
+
+# Write the public IPs to a file
+resource "local_file" "public_ips" {
+  content  = join("\n", aws_instance.example[*].public_ip)
+  filename = "${path.module}/public_ips.txt"
+}
