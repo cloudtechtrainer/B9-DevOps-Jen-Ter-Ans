@@ -30,7 +30,7 @@ resource "aws_security_group" "ssh" {
 resource "aws_instance" "example" {
   count = 4 
   ami           = "ami-05b5693ff73bc6f84"
-  instance_type = "t2.micro"
+  instance_type = "t3.micro"
   key_name = "jenkin-key"
   vpc_security_group_ids = [aws_security_group.ssh.id]
 }
