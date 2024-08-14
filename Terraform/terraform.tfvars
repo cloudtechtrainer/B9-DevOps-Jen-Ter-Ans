@@ -1,2 +1,2 @@
-ami = "ami-01eccbf80522b562b"
-key = "DEMO-1"
+ami = "ami-05b5693ff73bc6f84"
+key = "jenkin-key"
