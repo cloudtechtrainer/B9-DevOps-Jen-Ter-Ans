@@ -1,5 +1,10 @@
 # main.tf
 
+provider "aws" {
+  region = "ap-south-2"
+  profile = "jack.roper"
+}
+
 # Create a new security group that allows incoming SSH traffic
 resource "aws_security_group" "ssh" {
   name_prefix = "allow-ssh-and-http"
