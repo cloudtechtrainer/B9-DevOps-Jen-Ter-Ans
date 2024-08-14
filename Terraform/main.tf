@@ -21,7 +21,7 @@ resource "aws_security_group" "ssh" {
 # Create a new EC2 instance and associate it with the security group
 resource "aws_instance" "example" {
   count = 4 
-  ami           = "ami-0d473344347276854"
+  ami           = "ami-05b5693ff73bc6f84"
   instance_type = "t2.micro"
   key_name = "Test-1"
   vpc_security_group_ids = [aws_security_group.ssh.id]
