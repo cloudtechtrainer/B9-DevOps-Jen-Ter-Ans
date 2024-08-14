@@ -58,7 +58,7 @@ pipeline {
                         pwd
                         cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Ansible
                         ls -l
-                        ansible-playbook -i inventory.ini playbook.yml
+                        ansible-playbook -i /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform/public_ips.txt deploy-playbook.yaml
                     """
                 }
             }
