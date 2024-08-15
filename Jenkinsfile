@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
-                    sleep 20                   
+                    sleep 50                   
                     echo 'Waited for Resources to come alive' 
                     """
                 }
