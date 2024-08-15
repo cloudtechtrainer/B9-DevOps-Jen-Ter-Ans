@@ -31,7 +31,7 @@ resource "aws_instance" "example" {
   count = 2
   ami           = "ami-0c548ac9d29f2213d"
   instance_type = "t3.micro"
-  key_name = "jenkin-key"
+  key_name = "remote-key"
   vpc_security_group_ids = [aws_security_group.ssh.id]
 }
 
