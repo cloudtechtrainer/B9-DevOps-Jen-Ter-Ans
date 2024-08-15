@@ -24,7 +24,7 @@
     - name: Clone Flask app repository
       git:
         repo: 'https://github.com/cloudtechtrainer/B8-DevOps-Ansible.git'
-        dest: /home/ec2-user/flaskapp
+        dest: /home/ec2-user/myflaskapp
 
     - name: Create systemd service file for Flask app
       copy:
@@ -36,8 +36,8 @@
 
           [Service]
           User=ec2-user
-          WorkingDirectory=/home/ec2-user/flaskapp
-          ExecStart=/home/ec2-user/flaskapp/venv/bin/python /home/ec2-user/flaskapp/myapp.py
+          WorkingDirectory=/home/ec2-user/myflaskapp
+          ExecStart=/home/ec2-user/flaskapp/venv/bin/python /home/ec2-user/myflaskapp/myapp.py
           Restart=always
 
           [Install]
