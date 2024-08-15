@@ -62,7 +62,7 @@ pipeline {
                     sh """ 
                         #!/bin/bash                        
                         cd /var/lib/jenkins/workspace/infra-automation/Ansible
-                        ansible-playbook -i /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform/public_ips.txt deploy-playbook.yaml --private-key=/var/lib/jenkins/workspace/terra-ansi-pipeline/Ansible/remote-key.pem
+                        ansible-playbook -i /var/lib/jenkins/workspace/infra-automation/Terraform/public_ips.txt deploy-playbook.yaml --private-key=/var/lib/jenkins/workspace/infra-automation/Ansible/remote-key.pem
                     """
                 }
             }
