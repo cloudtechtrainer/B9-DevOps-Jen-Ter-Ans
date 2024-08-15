@@ -14,10 +14,7 @@ pipeline {
                 script {
                         sh """ 
                         #!/bin/bash
-                        ls -l
-                        pwd
                         cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform
-                        ls -l
                         pwd
                         terraform init
                         """
@@ -30,8 +27,6 @@ pipeline {
                 script {
                     sh """ 
                     cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                   
-                    ls -l
-                    pwd
                     terraform plan -out=tfplan -parallelism=2
                     """
                 }
