@@ -49,6 +49,17 @@ pipeline {
             }
         }
 
+        stage('Wait') {
+            steps {
+                script {
+                    sh """ 
+                    sleep 20                   
+                    echo 'Waited for Resources to come alive' 
+                    """
+                }
+            }
+        }
+
         stage('Ansible Configuration') {
             steps {
                 script {
