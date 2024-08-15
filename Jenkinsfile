@@ -14,7 +14,7 @@ pipeline {
                 script {
                         sh """ 
                         #!/bin/bash
-                        cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform
+                        cd /var/lib/jenkins/workspace/infra-automation/Terraform
                         pwd
                         terraform init
                         """
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
-                    cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                   
+                    cd /var/lib/jenkins/workspace/infra-automation/Terraform                   
                     terraform plan -out=tfplan -parallelism=2
                     """
                 }
@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     sh """ 
-                    cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform                    
+                    cd /var/lib/jenkins/workspace/infra-automation/Terraform                    
                     terraform apply -auto-approve tfplan
                     """
                 }
@@ -59,11 +59,8 @@ pipeline {
             steps {
                 script {
                     sh """ 
-                        #!/bin/bash
-                        ls -l
-                        pwd
-                        cd /var/lib/jenkins/workspace/terra-ansi-pipeline/Ansible
-                        ls -l
+                        #!/bin/bash                        
+                        cd /var/lib/jenkins/workspace/infra-automation/Ansible
                         ansible-playbook -i /var/lib/jenkins/workspace/terra-ansi-pipeline/Terraform/public_ips.txt deploy-playbook.yaml --private-key=/var/lib/jenkins/workspace/terra-ansi-pipeline/Ansible/remote-key.pem
                     """
                 }
