@@ -14,6 +14,7 @@ pipeline {
                 script {
                         sh """ 
                         #!/bin/bash
+                        pwd
                         cd /var/lib/jenkins/workspace/infra-automation/Terraform
                         pwd
                         terraform init
